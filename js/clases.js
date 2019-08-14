@@ -54,7 +54,7 @@ class Cajero {
     }
 
     validarSaldoPersona(nombre, monto) {
-        return this.banco.usuarios[nombre] >= monto;
+        return this.banco.consultarSaldo(nombre) >= monto;
     }
 
     puedeDarDinero(nombre, monto) {
@@ -87,3 +87,20 @@ class Cajero {
 
 let cajero = new Cajero(banco, 100)
 let cajero2 = new Cajero(banco, 200)
+
+class Sucursal {
+    constructor(cajero) {
+        this.cajero = cajero
+    }
+
+    extraer(nombre, monto) {
+        this.cajero.entregarDinero(nombre, monto)
+    }
+}
+
+class Empleado extends Persona {
+    constructor(nombre, billetera, nomina) {
+        super(nombre, billetera)
+        this.nomina = nomina
+    }
+}
