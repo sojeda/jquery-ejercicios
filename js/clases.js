@@ -104,3 +104,15 @@ class Empleado extends Persona {
         this.nomina = nomina
     }
 }
+
+// window.nombre = 'Carlos'
+
+let Carolina = {
+    nombre: 'Carolina',
+    hobbies: ['toca la guitarra', 'toca la flauta', 'toca el acordion'],
+    recorrerHobbies: function () {
+        this.hobbies.forEach(function (elemento) {
+            console.log(this.nombre + ' ' + elemento);
+        }, this)
+    }
+}
